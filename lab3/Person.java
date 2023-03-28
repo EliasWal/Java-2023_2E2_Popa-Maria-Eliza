@@ -1,33 +1,54 @@
 package lab3;
 
-/**
- *
- * @author Popa Eliza
- */
+import java.util.*;
+
 public class Person implements Node, Comparable<Person> {
-    String name;
+    private String name;
+    protected String birthDate;
+    protected Map<Node, String> relationships= new HashMap<>();
+    protected int importance;
+
+    public Person(String name, String birthDate) {
+        this.name = name;
+        this.birthDate = birthDate;
+    }
+    
+    public int getImportance() {
+        return importance;
+    }
     
     @Override
     public String getName(){
         return name;
     }
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public int compareTo ( Person other )
+    {
+        if(!(other instanceof Person))
+            return -1;
+        Person p = (Person) other; 
+        if ( this.importance < p.getImportance () )
+            return -1 ;
+        return 1 ;
     }
 
     @Override
-    public int compareTo(Person other){
-            return this.name.compareTo(other.name);
+    public String toString() {
+        return "Person{" + "name=" + name + ", birthDate=" + birthDate + ", relationships=" + relationships + ", importance=" + importance + '}';
     }
 
-    @Override
-    public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void addRelationship(Node node, String value) {
+            relationships.put(node , value);
+            importance++;
     }
 
-    @Override
-    public double getWeight() {
-        return Node.super.getWeight(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    public Map<Node, String> getRelationships() {
+        return relationships;
     }
-
+    
 }
