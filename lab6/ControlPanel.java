@@ -2,6 +2,8 @@ package com.mycompany.lab6;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.RenderedImage;
+import java.io.*;
 import javax.swing.*;
 
 /**
@@ -28,7 +30,10 @@ public class ControlPanel extends JPanel{
             resetButton = new JButton("Reset");
             exitButton = new JButton("Exit");
             //configure listeners for all buttons
-            exitBtn.addActionListener(this::exitGame);
+            exitButton.addActionListener(this::exitGame);
+            resetButton.addActionListener(this::resetGame);
+            saveButton.addActionListener(this::saveGame);
+            loadButton.addActionListener(this::loadGame);
             //...TODO
             add(loadButton);
             add(saveButton);
@@ -38,5 +43,15 @@ public class ControlPanel extends JPanel{
         private void exitGame(ActionEvent e) {
             frame.dispose();
         }
+        private void resetGame(ActionEvent e) {
+            //frame.setBackground(Color.yellow);
+        }
+        private void saveGame(ActionEvent e) {
+            
+        }
+        private void loadGame(ActionEvent e) {
+            frame.dispose();
+        }
+        
         //...TODO
 }

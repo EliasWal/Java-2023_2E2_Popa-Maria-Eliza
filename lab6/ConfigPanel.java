@@ -2,6 +2,8 @@ package com.mycompany.lab6;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author Elias
@@ -23,9 +25,19 @@ public class ConfigPanel extends JPanel {
         dotsSpinner = new JSpinner(new SpinnerNumberModel(6, 3, 100, 1));
         
         linesLabel = new JLabel("Line probability:");
-        String[] lineOptions = {"1.0", "2.0"};
+        Double[] lineOptions = {1.0, 0.75 , 0.5, 0.25};
         linesCombo = new JComboBox(lineOptions);
         createButton = new JButton("Create new game");
+        createButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int numDots= (int) dotsSpinner.getValue();
+                double numLines= (double) linesCombo.getSelectedItem();
+                frame.repaint();
+                 System.out.println(numLines);
+            }
+        });
+
          //create the rest of the components
          //...TODO
          add(dotsLabel); //JPanel uses FlowLayout by default
@@ -35,4 +47,5 @@ public class ConfigPanel extends JPanel {
          add(createButton);
          //...TODO
     }
+   
 }
