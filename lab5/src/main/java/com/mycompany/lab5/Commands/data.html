@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>HTML Report</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+      <p>
+	      This is the HTML report
+	</p>
+	<p> Details about the catalog: </p>
+		<#list catalog.docs as document>
+                    <p>${document.id}    ${document.title}     ${document.location}</p>
+                    <br><br>
+		</#list>
+    </body>
+</html>

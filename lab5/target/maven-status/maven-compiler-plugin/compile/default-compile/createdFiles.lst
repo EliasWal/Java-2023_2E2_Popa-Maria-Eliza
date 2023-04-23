@@ -1,0 +1,13 @@
+Commands\View.class
+com\mycompany\lab5\Catalog.class
+Commands\Load.class
+com\mycompany\lab5\CatalogUtil.class
+Commands\InvalidCatalogException.class
+Commands\Report.class
+Commands\Add.class
+com\mycompany\lab5\Lab5.class
+com\mycompany\lab5\Document.class
+Commands\Generic.class
+Commands\toString.class
+Commands\List.class
+Commands\Save.class
