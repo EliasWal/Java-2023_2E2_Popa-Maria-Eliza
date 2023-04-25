@@ -26,9 +26,11 @@ public class ArtistDAO {
     }
 
     public String findById(int id) throws SQLException {
-        //TODO
-        return null;
-        //TODO
+        Connection con = Database.getConnection();
+        try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(
+                "select name from artists where id='" + id + "'")) {
+            return rs.next() ? rs.getString(1) : null;
+        }
     }
 
 }

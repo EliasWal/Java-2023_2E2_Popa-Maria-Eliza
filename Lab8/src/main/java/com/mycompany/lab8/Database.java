@@ -11,11 +11,14 @@ public class Database {
             = "jdbc:postgresql://localhost:5432/albums";
     private static final String USER = "postgres";
     private static final String PASSWORD = "password";
-    private static Connection connection = null;
+    private static Connection connection;
 
     private Database() {}
 
     public static Connection getConnection() {
+        if (connection == null) {
+            createConnection();
+        }
         return connection;
     }
      
@@ -31,6 +34,9 @@ public class Database {
     
      public static void closeConnection() throws SQLException { 
          connection.close();
+    }
+    public static void rollback() throws SQLException {
+        connection.rollback();
     }
 
     
