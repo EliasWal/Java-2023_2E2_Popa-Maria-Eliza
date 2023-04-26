@@ -15,7 +15,7 @@ public class GenreDAO {
     public void create(String name) throws SQLException {
         Connection con = Database.getConnection();
         try (PreparedStatement pstmt = con.prepareStatement(
-                "insert into genre (name) values (?)")) {
+                "insert into genres (name) values (?)")) {
             pstmt.setString(1, name);
             pstmt.executeUpdate();
         }
@@ -24,7 +24,7 @@ public class GenreDAO {
     public Integer findByName(String name) throws SQLException {
         Connection con = Database.getConnection();
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(
-                "select id from genre where name='" + name + "'")) {
+                "select id from genres where name='" + name + "'")) {
             return rs.next() ? rs.getInt(1) : null;
         }
     }
@@ -32,7 +32,7 @@ public class GenreDAO {
     public String findById(int id) throws SQLException {
         Connection con = Database.getConnection();
         try (Statement stmt = con.createStatement(); ResultSet rs = stmt.executeQuery(
-                "select name from genre where id='" + id + "'")) {
+                "select name from genres where id='" + id + "'")) {
             return rs.next() ? rs.getString(1) : null;
         }
     }
