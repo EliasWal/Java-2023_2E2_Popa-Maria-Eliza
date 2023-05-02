@@ -1,10 +1,12 @@
 package com.mycompany.lab8;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  *
@@ -34,29 +36,17 @@ public class Lab8 {
             System.out.println(albums.findByName("The Wall"));
             System.out.println(albums.findById(4));
             Database.getConnection().commit();
-            Connection con = Database.getConnection();
-
-            Statement stmt = con.createStatement();
-            String sql = "SELECT * FROM albums";
-            ResultSet rs = stmt.executeQuery(sql);
             
-           
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                int releaseYear = rs.getInt("year");
-                String title = rs.getString("name");
-                String artist_name = rs.getString("artist");
-                String genre = rs.getString("genre");
-               
-                System.out.println("ID: " + id);
-                System.out.println("Release Year: " + releaseYear);
-                System.out.println("Title: " + title);
-                System.out.println("Artist ID: " + artist_name);
-                System.out.println("Genre: " + genre);
+            albums.findAll();
+            try{
+            Dataset dataset = new Dataset("albumlist.csv");
+            } catch (IOException e) {
+                System.err.println("Error reading dataset: " + e.getMessage());
             }
-
+        albums.findAll();
             Database.getConnection().close();
-        } catch (SQLException e) {
+        } 
+        catch (SQLException e) {
             System.err.println(e);
             Database.rollback();
         }
