@@ -1,5 +1,6 @@
 package com.mycompany.lab8;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ public class Lab8 {
 
     public static void main(String args[]) throws SQLException {
         try {
+            ComboPooledDataSource cpds = new ComboPooledDataSource("albums");
+
             var artists = new ArtistDAO();
             artists.create("Pink Floyd");
             artists.create("Michael Jackson");
