@@ -2,6 +2,7 @@ package repositories;
 
 import java.io.Serializable;
 import javax.persistence.EntityManager;
+import org.dom4j.tree.*;
 
 /**
  *
@@ -29,7 +30,5 @@ public abstract class DataRepository  <T extends AbstractEntity, ID extends Seri
         }
     }
 
-    private void beginTransaction() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 }
