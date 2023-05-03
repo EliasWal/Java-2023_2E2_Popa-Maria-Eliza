@@ -17,5 +17,24 @@ public class AlbumRepository extends DataRepository<Album, Integer>   {
     .getResultList();
     }
     
+    public void create(Album album){
+        
+    }
+    
+    public String findById(int id){
+        return null;
+    }
+    
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public Integer findByName(String name){
+                
+        
+    }
+    public  
+    
     
 }

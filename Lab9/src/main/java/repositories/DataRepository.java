@@ -1,6 +1,5 @@
 package repositories;
 
-import entities.AbstractEntity;
 import java.io.Serializable;
 import javax.persistence.EntityManager;
 
@@ -20,13 +19,17 @@ public abstract class DataRepository  <T extends AbstractEntity, ID extends Seri
     }
      public void persist(T entity) {
         try {
-            beginTransaction();
+            em.getTransaction().begin();
             em.persist(entity);
-            commit();
+            em.getTransaction().commit();
             em.close();
         } catch (Exception e) {
-            handleException(e);
-            rollback();
+            e.printStackTrace();
+            em.getTransaction().rollback();
         }
+    }
+
+    private void beginTransaction() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

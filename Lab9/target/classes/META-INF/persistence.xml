@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>entities.Artist</class>
     <class>entities.Genres</class>
+    <class>repositories.AbstractEntity</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/albums"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>
