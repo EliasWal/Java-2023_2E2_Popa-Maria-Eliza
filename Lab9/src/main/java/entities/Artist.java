@@ -5,12 +5,14 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -92,6 +94,18 @@ public class Artist implements Serializable {
     @Override
     public String toString() {
         return "entities.Artist[ id=" + id + " ]";
+    }
+    
+    
+    @ManyToMany
+    private List<Artist> manyToMany;
+    
+    public List<Artist> getManyToMany(){
+        return manyToMany;
+    }
+    
+    public void setManyToMany(List<Artist> manyToMany){
+        this.manyToMany = manyToMany;
     }
     
 }

@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import org.dom4j.tree.AbstractEntity;
 
 /**
  *
@@ -14,9 +15,11 @@ import javax.persistence.*;
             query = "select e from Album e order by e.title"),
     @NamedQuery(name = "Album.findByArtist",
             query = "select e from Album e where e.artist = ?1"),
+    @NamedQuery(name = "Album.findById",
+            query = "select e from Album e where e.id = ?0"),
  
 })
-public class Album {
+public class Album extends AbstractEntity{
 
     @Basic(optional = false)
     @Column(name = "year")

@@ -1,0 +1,9 @@
+entities\Artist.class
+repositories\AlbumRepository.class
+repositories\ArtistRepository.class
+entities\Genres.class
+com\mycompany\lab9\Lab9.class
+entities\Album.class
+entities\PersistanceManager.class
+repositories\DataRepository.class
+repositories\GenreRepository.class
