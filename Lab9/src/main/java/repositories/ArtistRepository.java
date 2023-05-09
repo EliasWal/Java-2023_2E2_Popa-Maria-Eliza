@@ -26,7 +26,7 @@ public class ArtistRepository {
             return (Artist) entityManager.createNamedQuery("Artist.findByName").setParameter("name", name).getResultList().get(0);
         }
         
-        public  Artist findByName(Integer id){
+        public  Artist findById(Integer id){
             EntityManager entityManager = em.createEntityManager();
             return (Artist) entityManager.createNamedQuery("Artist.findById").setParameter("id", id).getResultList().get(0);
         }

@@ -6,13 +6,15 @@ import entities.Artist;
 import java.util.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.dom4j.tree.AbstractEntity;
 /**
  *
  * @author Elias
  */
 public class AlbumRepository extends AbstractRepository<Album, Integer>   {
-    private EntityManagerFactory em = PersistenceManager.getInstance().getEntityManagerFactory(); //create it somehow
+    private EntityManagerFactory em = Persistence.createEntityManagerFactory("default");//.getEntityManagerFactory(); //create it somehow
     
     public Album findByArtist(Artist artist) {
         EntityManager entityManager = em.createEntityManager();
