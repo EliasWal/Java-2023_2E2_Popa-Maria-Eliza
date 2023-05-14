@@ -4,6 +4,7 @@ import com.mycompany.hospitalplanner.database.Database;
 import com.mycompany.hospitalplanner.pacient.Pacient;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -68,4 +69,21 @@ public class Spital {
             Logger.getLogger(Spital.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int findId(){
+        Connection con = Database.getConnection();
+        ResultSet rs = null;
+        int id =-1;
+        try (PreparedStatement pstmt = con.prepareStatement(
+                "select id from spital where nume= ?")) {
+            pstmt.setString(1, this.nume);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                id=rs.getInt("id");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Spital.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+     }
 }

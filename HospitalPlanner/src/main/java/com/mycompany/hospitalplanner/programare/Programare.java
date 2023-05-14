@@ -68,12 +68,12 @@ public class Programare {
     public void create()  {
         Connection con = Database.getConnection();
         try (PreparedStatement pstmt = con.prepareStatement(
-                "insert into programare (data,ora,id_pacient, adresa, numar_telefon) values (?, ?, ?, ?, ?)")) {
-            pstmt.setString(1, nume);
-            pstmt.setString(2, prenume);
-            pstmt.setString(3, data_nasterii);
-            pstmt.setString(4, adresa);
-            pstmt.setString(5, numar_telefon);
+                "insert into programare (data, ora, id_pacient, id_medic, id_spital ) values (?, ?, ?, ?, ?)")) {
+            pstmt.setString(1,data);
+            pstmt.setString(2, ora);
+            pstmt.setInt(3, id_pacient);
+            pstmt.setInt(4, id_medic);
+            pstmt.setInt(5, id_spital);
             pstmt.executeUpdate();
             System.out.println("Inserted successfully into programare");
         } catch (SQLException ex) {
