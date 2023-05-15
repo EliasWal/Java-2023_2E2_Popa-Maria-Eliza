@@ -13,8 +13,12 @@ import java.util.logging.Logger;
  *
  * @author Elias
  */
-public class Spital {
-    private String nume, judet, oras, adresa;
+public abstract class Spital {
+
+    String nume;
+    String judet;
+    String oras;
+    String adresa;
 
     public Spital(String nume, String judet, String oras, String adresa) {
         this.nume = nume;
@@ -55,35 +59,5 @@ public class Spital {
         this.adresa = adresa;
     }
     
-    public void create()  {
-        Connection con = Database.getConnection();
-        try (PreparedStatement pstmt = con.prepareStatement(
-                "insert into spitale (nume, judet, oras, adresa) values (?, ?, ?, ?)")) {
-            pstmt.setString(1, nume);
-            pstmt.setString(2, judet);
-            pstmt.setString(3, oras);
-            pstmt.setString(4, adresa);
-            pstmt.executeUpdate();
-            System.out.println("Inserted successfully into spitale");
-        } catch (SQLException ex) {
-            Logger.getLogger(Spital.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
-    public int findId(){
-        Connection con = Database.getConnection();
-        ResultSet rs = null;
-        int id =-1;
-        try (PreparedStatement pstmt = con.prepareStatement(
-                "select id from spital where nume= ?")) {
-            pstmt.setString(1, this.nume);
-            rs = pstmt.executeQuery();
-            if(rs.next()){
-                id=rs.getInt("id");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Spital.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return id;
-     }
 }

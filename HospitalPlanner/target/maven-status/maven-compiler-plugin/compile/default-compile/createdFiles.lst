@@ -1,6 +1,14 @@
-com\mycompany\hospitalplanner\medic\Medic.class
+com\mycompany\hospitalplanner\GUI\Login$3.class
 com\mycompany\hospitalplanner\database\Database.class
+com\mycompany\hospitalplanner\GUI\Login$2.class
+com\mycompany\hospitalplanner\medic\Medic.class
+com\mycompany\hospitalplanner\spital\SpitalDAO.class
+com\mycompany\hospitalplanner\medic\MedicDAO.class
 com\mycompany\hospitalplanner\pacient\Pacient.class
 com\mycompany\hospitalplanner\programare\Programare.class
+com\mycompany\hospitalplanner\programare\ProgramareDAO.class
 com\mycompany\hospitalplanner\HospitalPlanner.class
+com\mycompany\hospitalplanner\pacient\PacientDAO.class
 com\mycompany\hospitalplanner\spital\Spital.class
+com\mycompany\hospitalplanner\GUI\Login.class
+com\mycompany\hospitalplanner\GUI\Login$1.class
