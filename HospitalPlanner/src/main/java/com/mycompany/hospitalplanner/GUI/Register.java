@@ -4,6 +4,13 @@
  */
 package com.mycompany.hospitalplanner.GUI;
 
+import com.mycompany.hospitalplanner.database.Database;
+import com.mycompany.hospitalplanner.pacient.Pacient;
+import com.mycompany.hospitalplanner.pacient.PacientDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Elias
@@ -32,15 +39,15 @@ public class Register extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        numeField = new javax.swing.JEditorPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jEditorPane2 = new javax.swing.JEditorPane();
+        prenumeField = new javax.swing.JEditorPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jEditorPane3 = new javax.swing.JEditorPane();
+        dataNastereField = new javax.swing.JEditorPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jEditorPane4 = new javax.swing.JEditorPane();
+        adresaField = new javax.swing.JEditorPane();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jEditorPane5 = new javax.swing.JEditorPane();
+        telefonField = new javax.swing.JEditorPane();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -53,6 +60,7 @@ public class Register extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -76,18 +84,24 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jEditorPane1);
+        jScrollPane1.setViewportView(numeField);
+        numeField.getAccessibleContext().setAccessibleName("name");
 
-        jScrollPane2.setViewportView(jEditorPane2);
+        jScrollPane2.setViewportView(prenumeField);
 
-        jScrollPane3.setViewportView(jEditorPane3);
+        jScrollPane3.setViewportView(dataNastereField);
 
-        jScrollPane4.setViewportView(jEditorPane4);
+        jScrollPane4.setViewportView(adresaField);
 
-        jScrollPane5.setViewportView(jEditorPane5);
+        jScrollPane5.setViewportView(telefonField);
 
         jButton1.setBackground(new java.awt.Color(153, 51, 255));
         jButton1.setText("Create account");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setForeground(new java.awt.Color(153, 0, 255));
         jLabel2.setText("Name");
@@ -127,7 +141,7 @@ public class Register extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addGap(104, 104, 104))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(jScrollPane3)
                                 .addGap(18, 18, 18)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,19 +197,39 @@ public class Register extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(evt.getSource() == jButton1){
+            String numeR = numeField.getText();
+            String prenumeR = prenumeField.getText();
+            String data_nastereR= dataNastereField.getText();
+            String telefonR = telefonField.getText();
+            String adresaR = adresaField.getText();
+            
+            var pacient= new PacientDAO(numeR, prenumeR, data_nastereR, telefonR, adresaR);
+            pacient.create();
+            try {
+                Database.getConnection().commit();
+            } catch (SQLException ex) {
+                Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        //var pacient=new PacientDAO();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,12 +267,9 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JEditorPane adresaField;
+    private javax.swing.JEditorPane dataNastereField;
     private javax.swing.JButton jButton1;
-    private javax.swing.JEditorPane jEditorPane1;
-    private javax.swing.JEditorPane jEditorPane2;
-    private javax.swing.JEditorPane jEditorPane3;
-    private javax.swing.JEditorPane jEditorPane4;
-    private javax.swing.JEditorPane jEditorPane5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -254,5 +285,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JEditorPane numeField;
+    private javax.swing.JEditorPane prenumeField;
+    private javax.swing.JEditorPane telefonField;
     // End of variables declaration//GEN-END:variables
 }
