@@ -1,3 +1,7 @@
-com\mycompany\serverapp\ClientThread.class
+com\mycompany\serverapp\functionalities\Cell.class
 com\mycompany\serverapp\GameServer.class
 com\mycompany\serverapp\ServerApp.class
+com\mycompany\serverapp\ClientThread.class
+com\mycompany\serverapp\functionalities\Game.class
+com\mycompany\serverapp\functionalities\Board.class
+com\mycompany\serverapp\functionalities\Player.class
