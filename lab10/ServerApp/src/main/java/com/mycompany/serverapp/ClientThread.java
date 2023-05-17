@@ -50,19 +50,20 @@ public class ClientThread extends Thread{
                     Player player1 = new Player("P1", 'X');
                     Player player2 = new Player("P2", 'O');
                     Game game = new Game(player1, player2, 15);
-                    game.makeMove(0,0);
-                    game.switchPlayer();
                 }
+                else
                 if(input.equals("join game")){
                     System.out.println("Server received message: " + input);
                     System.out.println("Player entered the game succesfully!");
-                    out.println("Good!");
+                    out.println("Player entered the game succesfully!");
                      
                     
                 }
                 if(input.equals("submit move")){
                     System.out.println("Server received message: " + input);
                     System.out.println("Player submitted move succesfully!");
+                    out.println("Server received message: " + input);
+                    out.println("Player submitted move succesfully!");
                 }
                 
                 {
