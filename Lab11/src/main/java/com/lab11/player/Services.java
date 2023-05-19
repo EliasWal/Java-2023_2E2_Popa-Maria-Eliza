@@ -30,6 +30,30 @@ public class Services {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
-    
+
+    void addPlayer(Player player) {
+        players.add(player);
+    }
+
+    boolean updatePlayer(int id, Player player) {
+        for(Player p : players){
+            if(p.getId() == id){
+                p.setNume(player.getNume());
+                p.setSymbol(player.getSymbol());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    boolean deletePlayer(int id) {
+        for (Player p : players) {
+            if (p.getId() == id) {
+                players.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }  
     
 }

@@ -1,5 +1,7 @@
 package com.lab11.player;
 
+import java.util.List;
+
 /**
  *
  * @author Elias
@@ -8,6 +10,7 @@ public class Player {
     private String nume;
     private char symbol; 
     private int id;
+    private List<Player> players;
 
     public Player(String nume, char symbol, int id) {
         this.nume = nume;
@@ -43,6 +46,7 @@ public class Player {
     public String toString() {
         return "Player{" + "nume=" + nume + ", id=" + id + '}';
     }
-    
+ 
+   
     
 }
