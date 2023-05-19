@@ -1,5 +1,8 @@
 com\lab11\Lab11Application.class
-com\lab11\player\Services.class
 com\lab11\player\Controller.class
+com\lab11\player\Game\Game.class
 com\lab11\player\Player.class
+com\lab11\player\Services.class
+com\lab11\player\Game\GameController.class
+com\lab11\player\Game\GameService.class
 com\lab11\ServletInitializer.class
