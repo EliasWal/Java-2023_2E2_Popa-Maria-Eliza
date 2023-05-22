@@ -23,7 +23,7 @@ public class ClientAppLab11Application {
 //        gameClient.deletePlayer(3);
 //        gameClient.deletePlayer(1);
 //        gameClient.deletePlayer(3);'
-//          gameClient.modifyName(3, "Maddie");
+        gameClient.modifyName(2, "Max");
         gameClient.getGames();
         }
 

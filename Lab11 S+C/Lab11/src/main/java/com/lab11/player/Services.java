@@ -1,5 +1,6 @@
 package com.lab11.player;
 
+import io.swagger.annotations.ApiParam;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Services {
+   
+    
     private List<Player> players;
     
     public Services(){
@@ -22,7 +25,7 @@ public class Services {
         players.add(player2);
         players.add(player3);
     }
-
+    
     public List<Player> getPlayers() {
         return players;
     }
@@ -30,23 +33,24 @@ public class Services {
     public void setPlayers(List<Player> players) {
         this.players = players;
     }
-
-    void addPlayer(Player player) {
+    
+    void addPlayer(@ApiParam("Player object") Player player) {
         players.add(player);
     }
-
-    boolean updatePlayer(int id, Player player) {
+    
+    boolean updatePlayer(@ApiParam("Player ID") int id,@ApiParam("Updated player object")  Player player) {
         for(Player p : players){
             if(p.getId() == id){
                 p.setNume(player.getNume());
                 p.setSymbol(player.getSymbol());
+                p.setId(player.getId());
                 return true;
             }
         }
         return false;
     }
-
-    boolean deletePlayer(int id) {
+    
+    boolean deletePlayer(@ApiParam("Player ID")int id) {
         for (Player p : players) {
             if (p.getId() == id) {
                 players.remove(p);

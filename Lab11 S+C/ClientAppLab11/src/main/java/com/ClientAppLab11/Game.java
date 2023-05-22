@@ -15,6 +15,10 @@ public class Game {
         this.player2=player2;
     }
 
+    public Game() {
+    }
+
+    
 
     public String getId() {
         return id;
@@ -39,5 +43,12 @@ public class Game {
     public void setPlayer2(Player player2) {
         this.player2 = player2;
     }
+
+    @Override
+    public String toString() {
+        return "Game{" + "id=" + id + ", player1=" + player1 + ", player2=" + player2 + '}';
+    }
+    
+    
 }
 

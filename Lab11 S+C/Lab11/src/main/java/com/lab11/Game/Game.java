@@ -41,8 +41,4 @@ public class Game {
     public void setPlayer2(Player player2) {
         this.player2 = player2;
     }
-
-    
-   
-    
 }
