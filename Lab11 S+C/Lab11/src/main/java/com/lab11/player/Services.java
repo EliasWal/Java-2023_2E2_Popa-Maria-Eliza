@@ -34,11 +34,11 @@ public class Services {
         this.players = players;
     }
     
-    void addPlayer(@ApiParam("Player object") Player player) {
+    void addPlayer( Player player) {
         players.add(player);
     }
     
-    boolean updatePlayer(@ApiParam("Player ID") int id,@ApiParam("Updated player object")  Player player) {
+    boolean updatePlayer(int id, Player player) {
         for(Player p : players){
             if(p.getId() == id){
                 p.setNume(player.getNume());
@@ -50,7 +50,7 @@ public class Services {
         return false;
     }
     
-    boolean deletePlayer(@ApiParam("Player ID")int id) {
+    boolean deletePlayer( int id) {
         for (Player p : players) {
             if (p.getId() == id) {
                 players.remove(p);

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/games")
-@Api(tags = "Games")
 public class GameController {
     private final GameService gameService;
 
@@ -24,7 +23,6 @@ public class GameController {
     }
 
     @GetMapping
-    @ApiOperation("Get all games")
     public List<Game> getGameService() {
         return gameService.getGames();
     }
