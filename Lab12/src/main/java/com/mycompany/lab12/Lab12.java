@@ -17,12 +17,10 @@ public class Lab12 {
 
     public static void main(String[] args) throws Exception {
         Loader loader = new Loader();
-        loader.loadClassByName("C:\\Users\\Elias\\Desktop\\Facultate\\An II Sem 2\\JAVA\\Lab12\\src\\main\\java\\com\\mycompany\\lab12");
-        System.out.println();
-        loader.getPackages();
-        System.out.println();
+        String path = "C:\\Users\\Elias\\Desktop\\Facultate\\An II Sem 2\\JAVA\\Lab12\\tagert\\Lab12 - 1.0 - SNAPSHOT.jar";
+        loader.fileChecker(path);
+        //loader.getPackages();
         loader.getMethods();
-        System.out.println();
         loader.invokeMethods();
                 
     }
