@@ -17,7 +17,7 @@ public class Lab12 {
 
     public static void main(String[] args) throws Exception {
         Loader loader = new Loader();
-        loader.loadClassByName();
+        loader.loadClassByName("C:\\Users\\Elias\\Desktop\\Facultate\\An II Sem 2\\JAVA\\Lab12\\src\\main\\java\\com\\mycompany\\lab12");
         
     }
 }
