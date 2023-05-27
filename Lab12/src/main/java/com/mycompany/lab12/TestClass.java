@@ -8,7 +8,8 @@ package com.mycompany.lab12;
 import org.testng.annotations.Test;
 
 public class TestClass {
-    public String message;
+    public String message, hola, hpa;
+    
     public void printMessage(){
         System.out.println(message);
     }
@@ -26,4 +27,5 @@ public class TestClass {
         return "Hello";
     }
     
+   
 }

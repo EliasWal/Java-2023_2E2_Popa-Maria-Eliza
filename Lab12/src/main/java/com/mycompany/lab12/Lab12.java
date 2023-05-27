@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.lab12;
 
 /**
@@ -31,6 +27,11 @@ public class Lab12 {
         loader.getPackages();
         loader.getMethods();
         loader.invokeMethods();
-                
+        loader.getFields();
+        loader.getConstructors();
+        
+        System.out.println();        
+        
+        loader.invokeTestMethods();
     }
 }
