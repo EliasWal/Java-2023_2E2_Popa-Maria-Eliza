@@ -39,9 +39,19 @@ public class Loader {
             loadClassFromDirectory(file);
         }
         else 
-            if(file.isFile() && file.getName().endsWith(".jar")){
+            if(file.getName().endsWith(".jar")){
+                classLoader = getClass().getClassLoader();
+//                System.out.println("Helloooo!");
                 loadClassFromJar(file);
+                List<Class<?>> loadedClasses = loadClassFromJar(file);
+                if (!loadedClasses.isEmpty()) {
+                    clazz = loadedClasses.get(loadedClasses.size() - 1);
+                }
             }
+//            else {
+//                    System.out.println("Byeee!");
+//                    System.out.println(file.getName());
+//                }
     }
     
     public void getPackages(){
@@ -89,7 +99,7 @@ public class Loader {
     }
     
 
-    private void loadClassFromJar(File jarFile) throws Exception {
+    private List<Class<?>> loadClassFromJar(File jarFile) throws Exception {
         JarFile jar = new JarFile(jarFile);
         List<Class<?>> classes = new ArrayList<>();
         
@@ -97,13 +107,12 @@ public class Loader {
             if (entry.getName().endsWith(".class")) {
                 String className = entry.getName().replace('/', '.').replace(".class", "");
                 Class<?> loadedClass = classLoader.loadClass(className);
+//                System.out.println(className);
                 classes.add(loadedClass);
             }
         }
-        for (Class<?> loadedClass : classes) {
-        clazz = loadedClass;
-        }
         jar.close();
+        return classes;
     }
 
     private void loadClass(File file) throws Exception {
