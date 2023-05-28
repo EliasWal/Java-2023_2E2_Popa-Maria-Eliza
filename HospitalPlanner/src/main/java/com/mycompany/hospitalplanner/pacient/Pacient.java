@@ -26,6 +26,10 @@ public abstract class Pacient {
         this.numar_telefon = numar_telefon;
     }
 
+    public Pacient() {
+    }
+
+    
     public String getNume() {
         return nume;
     }

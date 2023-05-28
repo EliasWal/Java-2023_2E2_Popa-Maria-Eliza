@@ -3,7 +3,7 @@ package com.mycompany.hospitalplanner;
 import com.mycompany.hospitalplanner.database.Database;
 import com.mycompany.hospitalplanner.*;
 import com.mycompany.hospitalplanner.GUI.Login;
-import com.mycompany.hospitalplanner.GUI.MainPanel;
+import com.mycompany.hospitalplanner.GUI.MakeAppointment;
 import com.mycompany.hospitalplanner.GUI.Register;
 import com.mycompany.hospitalplanner.GUI.Welcome;
 import com.mycompany.hospitalplanner.medic.MedicDAO;
@@ -22,7 +22,8 @@ import javax.swing.JPanel;
 public class HospitalPlanner {
 
     public static void main(String[] args) throws SQLException {
-        PacientDAO pacient=new PacientDAO("Damian", "Andreea", "12/02/2002", "Iasi", "0768584993");
+        char[] pass={'i', 'd', 'k'};
+        PacientDAO pacient=new PacientDAO("dkf", "Andreea", pass, "12/02/2002", "Iasi", "0768584993");
         //pacient.create();
         
         var medic = new MedicDAO("Huma", "Darius", "Cardiologie", "Iasi, Jud. Iasi", "0076454554");
