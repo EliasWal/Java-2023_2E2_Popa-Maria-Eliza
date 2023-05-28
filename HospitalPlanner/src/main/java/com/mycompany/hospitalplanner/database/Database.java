@@ -36,7 +36,7 @@ public class Database {
     private static void createConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            connection.setAutoCommit(false);
+            connection.setAutoCommit(true);
         } catch (SQLException e) {
             System.err.println("Cannot connect to DB: " + e);
         }

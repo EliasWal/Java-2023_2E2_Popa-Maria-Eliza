@@ -29,9 +29,6 @@ public abstract class Medic {
         this.adresa = adresa;
         this.numar_telefon = numar_telefon;
     }
-
-    
-
     
     public String getNume() {
         return nume;

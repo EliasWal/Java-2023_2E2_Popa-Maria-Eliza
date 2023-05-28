@@ -3,6 +3,7 @@ package com.mycompany.hospitalplanner;
 import com.mycompany.hospitalplanner.database.Database;
 import com.mycompany.hospitalplanner.*;
 import com.mycompany.hospitalplanner.GUI.Login;
+import com.mycompany.hospitalplanner.GUI.MainPanel;
 import com.mycompany.hospitalplanner.GUI.Register;
 import com.mycompany.hospitalplanner.GUI.Welcome;
 import com.mycompany.hospitalplanner.medic.MedicDAO;
@@ -21,7 +22,7 @@ import javax.swing.JPanel;
 public class HospitalPlanner {
 
     public static void main(String[] args) throws SQLException {
-        var pacient=new PacientDAO("Damian", "Andreea", "12/02/2002", "Iasi", "0768584993");
+        PacientDAO pacient=new PacientDAO("Damian", "Andreea", "12/02/2002", "Iasi", "0768584993");
         //pacient.create();
         
         var medic = new MedicDAO("Huma", "Darius", "Cardiologie", "Iasi, Jud. Iasi", "0076454554");
@@ -35,15 +36,18 @@ public class HospitalPlanner {
         int idMedic = medic.findId();
         
         var programare = new ProgramareDAO ("15/05/2023", "12:00",idPacient, idMedic, idSpital );
-        //programare.create();
-        Login login=new Login();
-        //login.setVisible(true);
-        Register register=new Register();
-        //register.setVisible(true);
+//        //programare.create();
+//        Login login=new Login();
+//        //login.setVisible(true);
+//        Register register=new Register();
+//        register.setVisible(true);
         Welcome welcome = new Welcome();
         welcome.setVisible(true);
+//        MainPanel mainPanel= new MainPanel();
+//        //mainPanel.setVisible(true);
+//        //Database.getConnection().commit();
+
         
-        Database.getConnection().commit();
         Database.getConnection().close();
         
     }
